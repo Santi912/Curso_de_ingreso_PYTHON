@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Santiago
+apellido: Decibe
 ---
 Ejercicio: entrada_salida_01
 ---
@@ -29,8 +29,9 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
     def btn_mostrar_on_click(self):
-        pass
-
+        #Agregué una línea
+        alert(title='Ejercicio 01', message='Esto no anda, funciona')  #Sin los atributos, por defecto primero se pone el titulo y despues message.
+                                                         #Con los atributos, podemos escribirlos en cualquier orden.
 
 if __name__ == "__main__":
     app = App()

@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Santiago
+apellido: Decibe
 ---
 Ejercicio: entrada_salida_04
 ---
@@ -34,7 +34,10 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        nombre = prompt(title='Ejercicio 04',prompt='Ingrese un nombre: ')
+        self.txt_nombre.delete(0,10000)    #--> sino, tkinter.END  #Si no usamos .delete() te queda el valor anterior, pegado al nuevo. El parámetro de la derecha es la cantidad de caracteres max
+        self.txt_nombre.insert(0,nombre)       #Si no ponemos el 0, rompe. Necesita el índice donde empezar a colocar el string.
+  
         
     
 if __name__ == "__main__":
