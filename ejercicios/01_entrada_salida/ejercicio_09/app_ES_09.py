@@ -42,7 +42,9 @@ class App(customtkinter.CTk):
     def btn_mostrar_on_click(self):
         sueldo     = float(self.txt_sueldo.get())
         incremento = float(self.txt_incremento.get())
-        sueldo_actualizado = sueldo * (incremento / 100 + 1)  #! De esta manera sacamos un incremento sin la posibilidad de poner sueldo * 1."porcentaje de incremento"
+        sueldo_actualizado = sueldo * (incremento / 100 + 1)  # De esta manera sacamos un incremento sin la posibilidad de poner sueldo * 1."porcentaje de incremento".
+                                            #Para informarle al usuario cuanto le descontamos/recargamos sobre el precio final, deberiamos poner la regla de 3 simples en una variable.
+        
         alert(title="Ejercicio 09",message=f'El sueldo actualizado es {round(sueldo_actualizado,2)}')
                                              #También podemos utilizar .format() al final del string, poniendo entre llaves desde el 0 en adelante, dependiendo la cantidad de variables usadas.
         

@@ -42,7 +42,8 @@ class App(customtkinter.CTk):
     def btn_mostrar_on_click(self):
         importe   = float(self.txt_importe.get())
         descuento = float(self.txt_descuento.get())
-        total_con_descuento = importe - (importe * descuento / 100)  #! De esta manera, sacamos el descuento total sin usar importe * 0.etc...
+        total_con_descuento = importe - (importe * descuento / 100)      # De esta manera, sacamos el descuento total sin usar importe * 0.etc...
+                                                         #Para informarle al usuario cuanto le descontamos/recargamos sobre el precio final, deberiamos poner la regla de 3 simples en una variable.
         alert(title='Ejercicio 10',message=f'El importe total, con los descuentos aplicados es {total_con_descuento}.')
         
     
