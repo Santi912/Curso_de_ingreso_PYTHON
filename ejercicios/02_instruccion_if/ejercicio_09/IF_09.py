@@ -29,7 +29,7 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        numero = random.randint(1,10)
+        numero = random.randrange(1,11)  # El final del número es EXCULYENTE. NO INCLUYE EL 5.
         alert(title='Ejercicio 09 - If', message=f'El número aleatoreo generado es: {numero}')
         
 

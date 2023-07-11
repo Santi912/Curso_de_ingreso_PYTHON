@@ -5,6 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Nombre: Santiago
+Apellido: Decibe
 Enunciado:
 Para el departamento de facturación:
     A.	Ingresar tres precios de productos y mostrar la suma de los mismos.
@@ -48,14 +50,30 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self):
-        pass
+        importe_1 = float(self.txt_importe_1.get())
+        importe_2 = float(self.txt_importe_2.get())
+        importe_3 = float(self.txt_importe_3.get())
+        importe_final = importe_1 + importe_2 + importe_3
+
+        alert('TP 1 - E/S', f'El importe final es: ${importe_final}')
 
     def btn_promedio_on_click(self):
-        pass
+        importe_1 = float(self.txt_importe_1.get())
+        importe_2 = float(self.txt_importe_2.get())
+        importe_3 = float(self.txt_importe_3.get())
+        promedio = (importe_1 + importe_2 + importe_3) / 3
+
+        alert('Tp 1 - E/S', f'El promedio de los tres importes es: {round(promedio,2)}')
 
     def btn_total_iva_on_click(self):
-        pass      
-    
+        importe_1 = float(self.txt_importe_1.get())
+        importe_2 = float(self.txt_importe_2.get())
+        importe_3 = float(self.txt_importe_3.get())
+        importe_final = importe_1 + importe_2 + importe_3
+        importe_final = importe_final * 1.21
+        
+        alert('TP 1 - E/S', f'El importe final + IVA es: ${importe_final}')
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

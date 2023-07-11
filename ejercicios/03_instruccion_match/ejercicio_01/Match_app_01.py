@@ -6,6 +6,8 @@ import customtkinter
 
 
 '''
+Nombre: Santiago
+Apellido: Decibe
 Enunciado:
 Obtener el valor del mes seleccionado en el combobox_mes y  
 al presionar el botón ‘Informar’ mostrar mediante alert los siguientes mensajes 
@@ -37,7 +39,18 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        mes = self.combobox_mes.get()
+        
+        match(mes):
+            case 'Enero':
+                alert(title='Ejercicio 01 - Match',message='Que comiences bien el año!!')
+            case 'Marzo':
+                alert(title='Ejercicio 01 - Match', message='A clases!!')
+            case 'Julio':
+                alert(title='Ejercicio 01 - Match', message='Se vienen las vacaciones!!')
+            case 'Diciembre':
+                alert(title='Ejercicio 01 - Match', message='Felices fiestas!!')
+                
     
     
 if __name__ == "__main__":
