@@ -5,6 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Nombre: Santiago
+Apellido: Decibe
 Todas las lámparas están  al mismo precio de $800 pesos final.
 		A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
 		B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
@@ -38,8 +40,50 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        cantidad     = int(self.combobox_cantidad.get())
+        marca        = self.combobox_marca.get()
+        precio_final = 800
+
+        #A)
+        if cantidad >= 6: 
+            precio_final = precio_final * cantidad
+            precio_final = precio_final * .50
+
+        #B)
+        elif cantidad == 5:
+            precio_final = precio_final * cantidad
+            if marca == 'ArgentinaLuz':
+                precio_final = precio_final * .60
+            else:
+                precio_final = precio_final * .70
         
+        #C)
+        elif cantidad == 4:
+            precio_final = precio_final * cantidad
+            if marca == 'ArgentinaLuz' or marca == 'FelipeLamparas':
+                precio_final = precio_final * .75
+            else: 
+                precio_final = precio_final * .80
+
+        #D)
+        elif cantidad == 3: 
+            precio_final = precio_final * cantidad
+            if marca == 'ArgentinaLuz':
+                precio_final = precio_final * .85
+            elif marca == 'FelipeLamparas':
+                precio_final = precio_final * .90
+            else:
+                precio_final = precio_final * .95
+
+        #E)
+        if precio_final > 4000:
+            precio_final = precio_final * .95
+
+
+        mensaje = f'El total de la compra es: ${precio_final}'
+        alert('TP 04 - FerreteIluminaria', mensaje)
+
+
     
 if __name__ == "__main__":
     app = App()
