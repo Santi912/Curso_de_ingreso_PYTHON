@@ -40,47 +40,51 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        cantidad     = int(self.combobox_cantidad.get())
+        cantidad     = self.combobox_cantidad.get()
+        cantidad     = int(cantidad)
         marca        = self.combobox_marca.get()
-        precio_final = 800
+        precio_total = 0
+        precio_sin_descuento = 800 * cantidad
 
         #A)
         if cantidad >= 6: 
-            precio_final = precio_final * cantidad
-            precio_final = precio_final * .50
+            descuento = 50
 
         #B)
         elif cantidad == 5:
-            precio_final = precio_final * cantidad
             if marca == 'ArgentinaLuz':
-                precio_final = precio_final * .60
+                descuento = 40
             else:
-                precio_final = precio_final * .70
+                descuento = 30
         
         #C)
         elif cantidad == 4:
-            precio_final = precio_final * cantidad
             if marca == 'ArgentinaLuz' or marca == 'FelipeLamparas':
-                precio_final = precio_final * .75
+                descuento = 25
             else: 
-                precio_final = precio_final * .80
+                descuento = 20
 
         #D)
         elif cantidad == 3: 
-            precio_final = precio_final * cantidad
             if marca == 'ArgentinaLuz':
-                precio_final = precio_final * .85
+                descuento = 15
             elif marca == 'FelipeLamparas':
-                precio_final = precio_final * .90
+                descuento = 10
             else:
-                precio_final = precio_final * .95
-
+                descuento = 5
+        
+        #Este cálculo va aca xq sino no podremos hacer el próximo, en el que varía la formula.
+        precio_total = precio_sin_descuento - precio_sin_descuento * (descuento / 100)
+        
         #E)
-        if precio_final > 4000:
-            precio_final = precio_final * .95
+        if precio_total >= 4000:
+            descuento = 5
+            precio_total = precio_total - precio_total * (descuento / 100)
+                    #Aqui, para que sea ADICIONAL, debemos restar del precio total, no el sin_descuento
 
-
-        mensaje = f'El total de la compra es: ${precio_final}'
+        #Con esta formula, y gracias a diferenciar (al principio) el precio_total, precio_sin_descuento y descuento, puedo obtener el precio final solo escribiendo el descuento explicitamente.
+        # Debe ir aca debajo xq asi el if cambia el valor de descuento (descuento / 100 da 0.*el porcentaje requerido*)
+        mensaje = f'El total de la compra es: ${precio_total}.'       
         alert('TP 04 - FerreteIluminaria', mensaje)
 
 

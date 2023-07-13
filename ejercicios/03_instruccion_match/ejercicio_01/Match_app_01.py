@@ -40,8 +40,9 @@ class App(customtkinter.CTk):
     
     def btn_informar_on_click(self):
         mes = self.combobox_mes.get()
+        #Si tengo una combobox, no es necesario hacer que tire un mensaje en caso de no escribir nada.
         
-        match(mes):
+        match mes:
             case 'Enero':
                 mensaje = 'Que comiences bien el año!!'
             case 'Marzo':
@@ -50,7 +51,8 @@ class App(customtkinter.CTk):
                 mensaje = 'Se vienen las vacaciones!!'
             case 'Diciembre':
                 mensaje = 'Felices fiestas!!'
-                
+            case _:
+                mensaje = ''
         alert('Ejercicio 01 - Match', mensaje)
                 
     
