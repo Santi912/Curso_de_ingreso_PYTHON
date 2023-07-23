@@ -5,6 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Nombre: Santiago
+Apellido: Decibe
 Enunciado:
 Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el usuario quiera, 
 hasta que presione el botón Cancelar (en el prompt). 
@@ -32,7 +34,33 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        titulo = 'Ejercicio 07 - While'
+        pedido = 'Ingrese un número: (para salir, presione CANCELAR)'
+        acumulador = 0
+        contador   = 0
+        promedio   = 0
+
+        numero = prompt(titulo, pedido)
+        
+        while numero != None:
+            #validación
+            while not numero.isdigit():
+                numero = prompt(titulo, pedido)
+            #Si no agregamos este if, cuando cancelemos y numero sea None, va a tirar error x no poder castearlo
+            if numero != None:                    
+                numero = int(numero)
+                acumulador += numero
+                contador += 1
+                numero = prompt(titulo, pedido)
+
+        promedio = acumulador / contador
+
+
+        self.txt_suma_acumulada.delete(0,1000000)
+        self.txt_suma_acumulada.insert(0,acumulador)
+        self.txt_promedio.delete(0,1000000)
+        self.txt_promedio.insert(0,promedio)
+
 
     
 if __name__ == "__main__":

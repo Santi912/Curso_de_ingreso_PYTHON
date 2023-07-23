@@ -16,7 +16,7 @@ class App(customtkinter.CTk):
     
     def __init__(self):
         super().__init__()
-
+        
         self.title("UTN FRA")
         
         self.btn_mostrar_iteracion = customtkinter.CTkButton(master=self, text="Mostrar iteración", command=self.btn_mostrar_iteracion_on_click)
@@ -24,7 +24,10 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        pass
+        numero = 0
+        while numero < 10:
+            numero += 1
+            alert("Ejercicio 01 - While" , numero)
     
     
 if __name__ == "__main__":
