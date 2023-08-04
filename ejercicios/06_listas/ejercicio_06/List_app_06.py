@@ -5,6 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Nombre: Santiago
+Apellido: Decibe
 Al presionar el botón 'PROMEDIO' se analizará el vector lista_datos a efectos de calcular 
 el promedio el cual deberá ser informado utilizando Dialog Alert.
 '''
@@ -24,7 +26,13 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        suma_total = 0
+
+        for num in self.lista_datos:
+            suma_total += num
+
+        promedio = suma_total / len(self.lista_datos)
+        alert('Ej 06 - Listas', f'El promedio de los valores de la lista es: {promedio}')
     
 if __name__ == "__main__":
     app = App()

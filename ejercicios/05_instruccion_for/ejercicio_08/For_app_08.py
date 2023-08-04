@@ -21,7 +21,18 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        contador_divisores = 0
+        i = 1
+        numero = prompt('Ej 08 - For','Ingrese un número: ')
+        numero = int(numero)
+        
+        for i in range(1,numero + 1,1):
+            if numero % i == 0:
+                contador_divisores += 1
+
+            if contador_divisores == 2:
+                alert('Ej 08 - For', f'{numero} es un número primo.')
+
     
 if __name__ == "__main__":
     app = App()
